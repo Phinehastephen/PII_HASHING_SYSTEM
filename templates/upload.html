@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card">
+
+    <div class="card-header">
+
+        Upload Dataset
+
+    </div>
+
+    <div class="card-body">
+        
+        {% if error %}
+        <div class="alert alert-danger">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <!-- {% if success %}    
+        <div class="alert alert-success">
+            {{ success }}
+        </div>
+        {% endif %} -->
+
+        <form
+        method="POST"
+        enctype="multipart/form-data">
+
+            <input
+            type="file"
+            name="dataset"
+            class="form-control mb-3"
+            required>
+
+            <button
+            class="btn btn-success">
+
+                Upload Dataset
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

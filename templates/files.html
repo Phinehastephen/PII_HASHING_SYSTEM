@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h3>Uploaded Files</h3>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>ID</th>
+            <th>Filename</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for file in files %}
+
+        <tr>
+
+            <td>{{ file.id }}</td>
+
+            <td>{{ file.filename }}</td>
+
+            <td>
+
+                {% if file.status == "Processed" %}
+
+                    <span class="badge bg-success">
+                        Processed
+                    </span>
+
+                {% else %}
+
+                    <span class="badge bg-warning text-dark">
+                        Pending
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>{{ file.upload_date }}</td>
+
+            <td>
+
+                {% if file.status == "Pending" %}
+
+                <a
+                    href="{{ url_for('process_file', file_id=file.id) }}"
+                    class="btn btn-warning btn-sm">
+
+                    Process
+
+                </a>
+
+                {% else %}
+
+                <button
+                    class="btn btn-success btn-sm"
+                    disabled>
+
+                    Completed
+
+                </button>
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}
