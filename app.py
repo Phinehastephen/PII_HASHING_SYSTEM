@@ -220,7 +220,7 @@ if __name__ == '__main__':
     app.run(debug=True)
     
 
-
+# Run python app.py to start the application. Then, open your web browser and go to http://http://127.0.0.1:5000 or follow the link on your terminal to access the application. Use the following credentials to log in:
 # python create_admin.py (run on terminer/bash)
 # Username: admin
 # Password: admin123
